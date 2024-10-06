@@ -1,0 +1,1 @@
+insert into employees (id, email, password) values (1, 'a', 'a')

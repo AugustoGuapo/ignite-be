@@ -8,8 +8,7 @@ import java.util.Date;
 import java.util.function.Function;
 
 @Component
-
-public class JwtUtil {
+public class JWTUtil {
     private static final String SECRET_KEY = "secret";
 
     public String extractUsername(String token) {
