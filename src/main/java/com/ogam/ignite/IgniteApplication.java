@@ -3,7 +3,7 @@ package com.ogam.ignite;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@SpringBootApplication
+@SpringBootApplication()
 public class IgniteApplication {
 
 	public static void main(String[] args) {
