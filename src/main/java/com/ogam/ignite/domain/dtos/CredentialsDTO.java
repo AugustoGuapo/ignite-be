@@ -1,4 +1,4 @@
-package com.ogam.ignite.domain;
+package com.ogam.ignite.domain.dtos;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -10,6 +10,6 @@ import lombok.Setter;
 @Getter
 @Setter
 public class CredentialsDTO {
-    String email;
-    String password;
+    private String email;
+    private String password;
 }

@@ -1,8 +1,8 @@
 package com.ogam.ignite.service;
-
-import com.ogam.ignite.domain.CredentialsDTO;
-import com.ogam.ignite.domain.EmployeeDTO;
-import com.ogam.ignite.domain.LoginResponse;
+/*
+import com.ogam.ignite.domain.dtos.CredentialsDTO;
+import com.ogam.ignite.domain.dtos.EmployeeDTO;
+import com.ogam.ignite.domain.responses.LoginResponse;
 import com.ogam.ignite.exceptions.DataNotFoundException;
 import com.ogam.ignite.exceptions.InvalidPasswordException;
 import com.ogam.ignite.repository.LoginRepository;
@@ -36,3 +36,4 @@ public class LoginService {
         return new LoginResponse("token de mentira");
     }
 }
+*/

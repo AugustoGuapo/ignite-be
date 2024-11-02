@@ -1,6 +1,6 @@
 package com.ogam.ignite.repository;
 
-import com.ogam.ignite.domain.EmployeeDTO;
+import com.ogam.ignite.domain.dtos.EmployeeDTO;
 import org.springframework.data.repository.Repository;
 
 import java.util.Optional;

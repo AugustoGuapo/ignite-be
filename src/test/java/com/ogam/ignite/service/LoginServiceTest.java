@@ -1,7 +1,7 @@
 package com.ogam.ignite.service;
 
-import com.ogam.ignite.domain.CredentialsDTO;
-import com.ogam.ignite.domain.EmployeeDTO;
+import com.ogam.ignite.domain.dtos.CredentialsDTO;
+import com.ogam.ignite.domain.dtos.EmployeeDTO;
 import com.ogam.ignite.repository.LoginRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -11,7 +11,6 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.when;
 
 
 @ExtendWith(MockitoExtension.class)

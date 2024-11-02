@@ -1,4 +1,4 @@
-package com.ogam.ignite.domain;
+package com.ogam.ignite.domain.responses;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

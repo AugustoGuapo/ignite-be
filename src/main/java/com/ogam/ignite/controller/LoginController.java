@@ -1,7 +1,7 @@
 package com.ogam.ignite.controller;
-
-import com.ogam.ignite.domain.CredentialsDTO;
-import com.ogam.ignite.domain.LoginResponse;
+/*
+import com.ogam.ignite.domain.dtos.CredentialsDTO;
+import com.ogam.ignite.domain.responses.LoginResponse;
 import com.ogam.ignite.service.LoginService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -22,4 +22,4 @@ public class LoginController {
     public ResponseEntity<LoginResponse> login(@RequestBody CredentialsDTO credentials) {
         return ResponseEntity.ok(loginService.login(credentials));
     }
-}
+}*/

@@ -1,4 +1,4 @@
-package com.ogam.ignite.domain;
+package com.ogam.ignite.domain.dtos;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -23,17 +23,17 @@ import java.util.List;
 public class EmployeeDTO {
 
     @Id
-    Long id;
+    private Long id;
     @Column
-    String name;
+    private String name;
     @Column
-    String email;
+    private String email;
     @Column
-    String password;
+    private String password;
     @Column
-    String cellphoneNumber;
+    private String cellphoneNumber;
     @Column
-    LocalDateTime startDate;
+    private LocalDateTime startDate;
     @Column
-    List<String> roles;
+    private List<String> roles;
 }
