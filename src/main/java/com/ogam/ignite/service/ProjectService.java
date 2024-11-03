@@ -1,6 +1,7 @@
 package com.ogam.ignite.service;
 
 import com.ogam.ignite.domain.dtos.ProjectDTO;
+import com.ogam.ignite.domain.entities.Project;
 import com.ogam.ignite.domain.requests.AddProjectRequest;
 import com.ogam.ignite.exceptions.DataNotFoundException;
 import com.ogam.ignite.repository.ClientRepository;
@@ -21,14 +22,15 @@ public class ProjectService {
     }
 
     public ProjectDTO addNewProject(AddProjectRequest project) {
-        ProjectDTO toSave = ProjectDTO.transformRequestToDTO(project);
+        Project toSave = Project.transformRequestToEntity(project);
         toSave.setClient(clientRepository.findById(project.getClientId()).orElseThrow(()
                 -> new DataNotFoundException(String.format("Client not found for id: %d", project.getClientId()))));
-        return projectRepository.save(toSave);
+        return ProjectDTO.transformEntityToDTO(projectRepository.save(toSave));
     }
 
     public List<ProjectDTO> getAllProjects() {
-        return projectRepository.findAll();
+        return projectRepository.findAll()
+                .stream().map(entity -> ProjectDTO.transformEntityToDTO(entity)).toList();
     }
 
 

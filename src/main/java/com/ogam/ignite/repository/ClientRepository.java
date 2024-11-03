@@ -1,8 +1,8 @@
 package com.ogam.ignite.repository;
 
 
-import com.ogam.ignite.domain.dtos.ClientDTO;
+import com.ogam.ignite.domain.entities.Client;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface ClientRepository extends JpaRepository<ClientDTO, Long> {
+public interface ClientRepository extends JpaRepository<Client, Long> {
 }
