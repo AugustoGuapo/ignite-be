@@ -7,6 +7,8 @@ import com.ogam.ignite.repository.ClientRepository;
 import com.ogam.ignite.repository.ProjectRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ProjectService {
 
@@ -24,4 +26,11 @@ public class ProjectService {
                 -> new DataNotFoundException(String.format("Client not found for id: %d", project.getClientId()))));
         return projectRepository.save(toSave);
     }
+
+    public List<ProjectDTO> getAllProjects() {
+        return projectRepository.findAll();
+    }
+
+
+
 }
