@@ -8,6 +8,10 @@ C:\Users\Augusto\Documents\ignite\backend\ignite\src\main\java\com\ogam\ignite\d
 C:\Users\Augusto\Documents\ignite\backend\ignite\src\main\java\com\ogam\ignite\domain\dtos\EmployeeDTO.java
 C:\Users\Augusto\Documents\ignite\backend\ignite\src\main\java\com\ogam\ignite\domain\dtos\ProjectDTO.java
 C:\Users\Augusto\Documents\ignite\backend\ignite\src\main\java\com\ogam\ignite\domain\dtos\TaskDTO.java
+C:\Users\Augusto\Documents\ignite\backend\ignite\src\main\java\com\ogam\ignite\domain\entities\Client.java
+C:\Users\Augusto\Documents\ignite\backend\ignite\src\main\java\com\ogam\ignite\domain\entities\Employee.java
+C:\Users\Augusto\Documents\ignite\backend\ignite\src\main\java\com\ogam\ignite\domain\entities\Project.java
+C:\Users\Augusto\Documents\ignite\backend\ignite\src\main\java\com\ogam\ignite\domain\entities\Task.java
 C:\Users\Augusto\Documents\ignite\backend\ignite\src\main\java\com\ogam\ignite\domain\requests\AddAssigneeRequest.java
 C:\Users\Augusto\Documents\ignite\backend\ignite\src\main\java\com\ogam\ignite\domain\requests\AddClientRequest.java
 C:\Users\Augusto\Documents\ignite\backend\ignite\src\main\java\com\ogam\ignite\domain\requests\AddProjectRequest.java
@@ -19,7 +23,6 @@ C:\Users\Augusto\Documents\ignite\backend\ignite\src\main\java\com\ogam\ignite\e
 C:\Users\Augusto\Documents\ignite\backend\ignite\src\main\java\com\ogam\ignite\IgniteApplication.java
 C:\Users\Augusto\Documents\ignite\backend\ignite\src\main\java\com\ogam\ignite\repository\ClientRepository.java
 C:\Users\Augusto\Documents\ignite\backend\ignite\src\main\java\com\ogam\ignite\repository\EmployeeRepository.java
-C:\Users\Augusto\Documents\ignite\backend\ignite\src\main\java\com\ogam\ignite\repository\LoginRepository.java
 C:\Users\Augusto\Documents\ignite\backend\ignite\src\main\java\com\ogam\ignite\repository\ProjectRepository.java
 C:\Users\Augusto\Documents\ignite\backend\ignite\src\main\java\com\ogam\ignite\repository\TaskRepository.java
 C:\Users\Augusto\Documents\ignite\backend\ignite\src\main\java\com\ogam\ignite\security\SecurityConfig.java
