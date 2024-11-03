@@ -28,8 +28,7 @@ public class TaskController {
     @PostMapping("/tasks/{taskId}/add_assignee")
     public ResponseEntity<TaskDTO> addAssigneeToATask(
             @RequestBody AddAssigneeRequest request, @PathVariable Long taskId) {
-        TaskDTO task = taskService.addAssignee(request, taskId);
-        return ResponseEntity.ok(task);
+        return ResponseEntity.ok(taskService.addAssignee(request, taskId));
 
     }
 }

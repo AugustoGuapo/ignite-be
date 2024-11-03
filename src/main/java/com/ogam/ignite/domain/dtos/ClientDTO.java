@@ -1,18 +1,12 @@
 package com.ogam.ignite.domain.dtos;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
-import com.ogam.ignite.domain.requests.AddClientRequest;
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
+import com.ogam.ignite.domain.entities.Client;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -24,37 +18,27 @@ import java.util.List;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
-@Table(name = "CLIENTS")
+@Builder
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class ClientDTO {
 
-    @Id
-    @GeneratedValue( strategy = GenerationType.IDENTITY)
     private Long id;
-
-    @Column
     private String name;
-
-    @Column
     private String cellphoneNumber;
-
-    @Column
     private String email;
-
-    @Column
     private LocalDateTime createdAt;
+    private List<Long> projects;
 
-    @OneToMany(mappedBy = "client", cascade = CascadeType.ALL, orphanRemoval = true)
-    @JsonIgnore
-    private List<ProjectDTO> projects;
-
-    public static ClientDTO transformRequestToDTO(AddClientRequest request) {
-        ClientDTO response = new ClientDTO();
-        response.name = request.getName();
-        response.cellphoneNumber = request.getCellphoneNumber();
-        response.createdAt = LocalDateTime.now();
-        response.email = request.getEmail();
-        return response;
+    public static ClientDTO transformEntityToDTO(Client client) {
+        return ClientDTO.builder()
+                .id(client.getId())
+                .name(client.getName())
+                .cellphoneNumber(client.getCellphoneNumber())
+                .email(client.getEmail())
+                .createdAt(client.getCreatedAt())
+                .projects(client.getProjects() == null ? null :
+                        client.getProjects().stream().map(entity -> entity.getId()).toList())
+                .build();
     }
 }

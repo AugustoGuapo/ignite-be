@@ -1,8 +1,9 @@
 package com.ogam.ignite.service;
 
-import com.ogam.ignite.domain.dtos.EmployeeDTO;
 import com.ogam.ignite.domain.dtos.ProjectDTO;
 import com.ogam.ignite.domain.dtos.TaskDTO;
+import com.ogam.ignite.domain.entities.Employee;
+import com.ogam.ignite.domain.entities.Task;
 import com.ogam.ignite.domain.requests.AddAssigneeRequest;
 import com.ogam.ignite.domain.requests.AddTaskRequest;
 import com.ogam.ignite.exceptions.DataNotFoundException;
@@ -27,19 +28,19 @@ public class TaskService {
     }
 
     public ProjectDTO addNewTask(AddTaskRequest task) {
-        TaskDTO toSave = TaskDTO.transformRequestToDTO(task);
+        Task toSave = Task.transformRequestToEntity(task);
         toSave.setProject(projectRepository.findById(task.getProjectId()).orElseThrow(
                 () -> new DataNotFoundException(String.format("Project not found for id: %d", task.getProjectId()))));
-        return taskRepository.save(toSave).getProject();
+        return ProjectDTO.transformEntityToDTO(taskRepository.save(toSave).getProject());
     }
 
     public TaskDTO addAssignee(AddAssigneeRequest assigneeRequest, Long taskId) {
-        TaskDTO toUpdate = taskRepository.findById(taskId).orElseThrow(
+        Task toUpdate = taskRepository.findById(taskId).orElseThrow(
                 () -> new DataNotFoundException(String.format("Task not found for id: %d", taskId)));
-        EmployeeDTO assignee = employeeRepository.findById(assigneeRequest.getEmployeeId()).orElseThrow(
+        Employee assignee = employeeRepository.findById(assigneeRequest.getEmployeeId()).orElseThrow(
                 () -> new DataNotFoundException(
                         String.format("Employee not found for id: %d", assigneeRequest.getEmployeeId())));
         toUpdate.setAssignee(assignee);
-        return taskRepository.save(toUpdate);
+        return TaskDTO.transformEntityToDTO(taskRepository.save(toUpdate));
     }
 }

@@ -1,1 +1,1 @@
-insert into employees (id, email, password) values (1, 'a', 'a')
+insert into employees (id, name, email, password) values (1, 'Oscar Padilla', 'oscar@ogam.com', '12345678')
