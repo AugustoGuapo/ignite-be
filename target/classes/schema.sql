@@ -1,0 +1,1 @@
+create table employees (id bigint not null, cellphone_number varchar(255), email varchar(255), name varchar(255), password varchar(255), roles varchar(255) array, start_date timestamp(6), primary key (id));
