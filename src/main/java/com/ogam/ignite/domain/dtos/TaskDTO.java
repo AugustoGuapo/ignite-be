@@ -38,6 +38,11 @@ public class TaskDTO {
     @Column
     private String grade;
 
+    @ManyToOne
+    @JoinColumn(name = "assignee_id")
+    @JsonBackReference
+    private EmployeeDTO assignee;
+
     @Column
     private Float cost;
 
