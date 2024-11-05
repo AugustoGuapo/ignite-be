@@ -1,5 +1,8 @@
+C:\Users\Augusto\Documents\ignite\backend\ignite\src\main\java\com\ogam\ignite\config\JacksonConfig.java
 C:\Users\Augusto\Documents\ignite\backend\ignite\src\main\java\com\ogam\ignite\config\JWTUtil.java
+C:\Users\Augusto\Documents\ignite\backend\ignite\src\main\java\com\ogam\ignite\config\WebConfig.java
 C:\Users\Augusto\Documents\ignite\backend\ignite\src\main\java\com\ogam\ignite\controller\ClientController.java
+C:\Users\Augusto\Documents\ignite\backend\ignite\src\main\java\com\ogam\ignite\controller\EmployeController.java
 C:\Users\Augusto\Documents\ignite\backend\ignite\src\main\java\com\ogam\ignite\controller\LoginController.java
 C:\Users\Augusto\Documents\ignite\backend\ignite\src\main\java\com\ogam\ignite\controller\ProjectController.java
 C:\Users\Augusto\Documents\ignite\backend\ignite\src\main\java\com\ogam\ignite\controller\TaskController.java
@@ -28,6 +31,8 @@ C:\Users\Augusto\Documents\ignite\backend\ignite\src\main\java\com\ogam\ignite\r
 C:\Users\Augusto\Documents\ignite\backend\ignite\src\main\java\com\ogam\ignite\security\SecurityConfig.java
 C:\Users\Augusto\Documents\ignite\backend\ignite\src\main\java\com\ogam\ignite\security\SecurityConfigurer.java
 C:\Users\Augusto\Documents\ignite\backend\ignite\src\main\java\com\ogam\ignite\service\ClientService.java
+C:\Users\Augusto\Documents\ignite\backend\ignite\src\main\java\com\ogam\ignite\service\EmployeeService.java
 C:\Users\Augusto\Documents\ignite\backend\ignite\src\main\java\com\ogam\ignite\service\LoginService.java
 C:\Users\Augusto\Documents\ignite\backend\ignite\src\main\java\com\ogam\ignite\service\ProjectService.java
 C:\Users\Augusto\Documents\ignite\backend\ignite\src\main\java\com\ogam\ignite\service\TaskService.java
+C:\Users\Augusto\Documents\ignite\backend\ignite\src\main\java\com\ogam\ignite\utils\Utils.java
