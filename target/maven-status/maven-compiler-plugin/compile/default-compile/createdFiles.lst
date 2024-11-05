@@ -38,6 +38,7 @@ com\ogam\ignite\config\JWTUtil.class
 com\ogam\ignite\domain\dtos\TaskDTO.class
 com\ogam\ignite\controller\TaskController.class
 com\ogam\ignite\repository\EmployeeRepository.class
+com\ogam\ignite\config\SwaggerConfig.class
 com\ogam\ignite\domain\dtos\ProjectDTO$ProjectDTOBuilder.class
 com\ogam\ignite\config\JacksonConfig.class
 com\ogam\ignite\domain\dtos\EmployeeDTO.class
