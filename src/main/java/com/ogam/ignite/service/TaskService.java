@@ -34,17 +34,18 @@ public class TaskService {
     public ProjectDTO addNewTask(AddTaskRequest task) {
         Task toSave = task.getTaskId() == null ? Task.transformRequestToEntity(task)
                 : taskRepository.findById(task.getTaskId()).orElseThrow(RuntimeException::new);
-        toSave.setAssignee(employeeRepository.findById(task.getEmployeeId()).orElseThrow(
-                () -> new DataNotFoundException(
-                        String.format("Employee not found for id: %d", task.getEmployeeId()))));
         if(task.getTaskId() != null) {
             toSave.setName(updateField(toSave.getName(), task.getName()));
             toSave.setPrice(updateField(toSave.getPrice(), task.getPrice()));
             toSave.setDescription(updateField(toSave.getDescription(), task.getDescription()));
             toSave.setGrade(updateField(toSave.getGrade(), task.getGrade()));
             toSave.setAssignee(task.getEmployeeId() == null ? toSave.getAssignee() == null ? null: toSave.getAssignee()
-                    : employeeRepository.findById(task.getTaskId()).orElseThrow(RuntimeException::new));
+                    : employeeRepository.findById(task.getEmployeeId()).orElseThrow(RuntimeException::new));
+            toSave.setStatus(updateField(toSave.getStatus(), task.getStatus()));
         } else {
+            toSave.setAssignee(employeeRepository.findById(task.getEmployeeId()).orElseThrow(
+                    () -> new DataNotFoundException(
+                            String.format("Employee not found for id: %d", task.getEmployeeId()))));
             toSave.setProject(projectRepository.findById(task.getProjectId()).orElseThrow(
                     () -> new DataNotFoundException(String.format("Project not found for id: %d", task.getProjectId()))));
         }

@@ -20,4 +20,5 @@ public class AddTaskRequest {
     String description;
     Long employeeId;
     Float price;
+    Integer status;
 }
