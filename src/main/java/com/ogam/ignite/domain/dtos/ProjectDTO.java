@@ -1,5 +1,6 @@
 package com.ogam.ignite.domain.dtos;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.fasterxml.jackson.databind.PropertyNamingStrategies;
@@ -11,7 +12,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.util.List;
 
 @Getter
@@ -25,9 +26,13 @@ public class ProjectDTO {
     Long id;
     ClientDTO client;
     String name;
+    String description;
     Double cost;
-    LocalDateTime createdAt;
-    LocalDateTime deliveryDate;
+    Double debt;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+    LocalDate createdAt;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+    LocalDate deliveryDate;
     List<TaskDTO> tasks;
 
     public static ProjectDTO transformEntityToDTO(Project project) {
@@ -36,8 +41,10 @@ public class ProjectDTO {
                 .client(ClientDTO.transformEntityToDTO(project.getClient()))
                 .cost(project.getCost())
                 .name(project.getName())
-                .createdAt(LocalDateTime.now())
+                .description(project.getDescription())
+                .createdAt(LocalDate.now())
                 .deliveryDate(project.getDeliveryDate())
+                .debt(project.getDebt())
                 .tasks(project.getTasks() == null ? null :
                         project.getTasks().stream().map(entity -> TaskDTO.transformEntityToDTO(entity)).toList())
                 .build();

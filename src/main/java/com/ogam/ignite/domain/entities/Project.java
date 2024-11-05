@@ -16,17 +16,19 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.util.List;
 
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 @Entity
 @Table(name = "PROJECTS")
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
@@ -45,29 +47,33 @@ public class Project {
     String name;
 
     @Column
+    String description;
+
+    @Column
     Double cost;
 
     @Column
-    LocalDateTime createdAt;
+    Double debt;
 
     @Column
-    LocalDateTime deliveryDate;
+    LocalDate createdAt;
+
+    @Column
+    LocalDate deliveryDate;
 
     @OneToMany(mappedBy = "project", cascade = CascadeType.ALL, orphanRemoval = true)
     List<Task> tasks;
 
     public static Project transformRequestToEntity(AddProjectRequest request) {
-        Project response = new Project();
-
-        Client client = new Client();
-        client.setId(request.getClientId());
-
-        response.client = client;
-        response.cost = request.getCost();
-        response.createdAt = LocalDateTime.now();
-        response.name = request.getName();
-        response.deliveryDate = request.getDeliveryDate();
-
-        return response;
+        return Project.builder()
+                .id(request.getProjectId())
+                .client(Client.builder().id(request.getClientId()).build())
+                .description(request.getDescription())
+                .cost(request.getCost())
+                .debt(request.getCost())
+                .createdAt(LocalDate.now())
+                .name(request.getName())
+                .deliveryDate(request.getDeliveryDate())
+                .build();
     }
 }

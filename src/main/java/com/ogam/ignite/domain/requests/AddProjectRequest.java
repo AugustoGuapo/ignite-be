@@ -7,7 +7,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 @Getter
 @Setter
@@ -15,11 +15,15 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
 public class AddProjectRequest {
+    Long projectId;
+
     Long clientId;
 
     String name;
 
+    String description;
+
     Double cost;
 
-    LocalDateTime deliveryDate;
+    LocalDate deliveryDate;
 }
