@@ -6,10 +6,13 @@ import com.ogam.ignite.domain.requests.AddAssigneeRequest;
 import com.ogam.ignite.domain.requests.AddTaskRequest;
 import com.ogam.ignite.service.TaskService;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 @RestController
 public class TaskController {
@@ -29,6 +32,11 @@ public class TaskController {
     public ResponseEntity<TaskDTO> addAssigneeToATask(
             @RequestBody AddAssigneeRequest request, @PathVariable Long taskId) {
         return ResponseEntity.ok(taskService.addAssignee(request, taskId));
-
     }
+
+    @GetMapping("/tasks")
+    public ResponseEntity<List<TaskDTO>> getAllTasks() {
+        return ResponseEntity.ok(taskService.getAllTasks());
+    }
+
 }

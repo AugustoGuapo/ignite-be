@@ -1,5 +1,6 @@
 package com.ogam.ignite.domain.dtos;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.fasterxml.jackson.databind.PropertyNamingStrategies;
@@ -25,8 +26,10 @@ public class ClientDTO {
 
     private Long id;
     private String name;
+    private String identificationDocument;
     private String cellphoneNumber;
     private String email;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDateTime createdAt;
     private List<Long> projects;
 
@@ -37,6 +40,7 @@ public class ClientDTO {
                 .cellphoneNumber(client.getCellphoneNumber())
                 .email(client.getEmail())
                 .createdAt(client.getCreatedAt())
+                .identificationDocument(client.getIdentificationDocument())
                 .projects(client.getProjects() == null ? null :
                         client.getProjects().stream().map(entity -> entity.getId()).toList())
                 .build();

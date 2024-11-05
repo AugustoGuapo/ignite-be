@@ -13,6 +13,5 @@ import lombok.Setter;
 @NoArgsConstructor
 @JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
 public class AddAssigneeRequest {
-
     long employeeId;
 }

@@ -13,9 +13,12 @@ import lombok.Setter;
 @NoArgsConstructor
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
 public class AddClientRequest {
+
     String name;
 
     String cellphoneNumber;
+
+    String identificationDocument;
 
     String email;
 }

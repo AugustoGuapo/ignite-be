@@ -14,6 +14,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -25,6 +26,7 @@ import java.util.List;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 @Entity
 @Table(name = "CLIENTS")
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
@@ -42,6 +44,9 @@ public class Client {
     private String cellphoneNumber;
 
     @Column
+    private String identificationDocument;
+
+    @Column
     private String email;
 
     @Column
@@ -51,11 +56,12 @@ public class Client {
     private List<Project> projects;
 
     public static Client transformRequestToEntity(AddClientRequest request) {
-        Client response = new Client();
-        response.name = request.getName();
-        response.cellphoneNumber = request.getCellphoneNumber();
-        response.createdAt = LocalDateTime.now();
-        response.email = request.getEmail();
-        return response;
+        return Client.builder()
+                .name(request.getName())
+                .cellphoneNumber(request.getCellphoneNumber())
+                .createdAt(LocalDateTime.now())
+                .email(request.getEmail())
+                .identificationDocument(request.getIdentificationDocument())
+                .build();
     }
 }

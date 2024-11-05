@@ -45,7 +45,13 @@ public class Task {
     private Employee assignee;
 
     @Column
-    private Float cost;
+    private Float price;
+
+    @Column
+    private String description;
+
+    @Column
+    private Integer status;
 
     @ManyToOne
     @JoinColumn(name = "project_id")
@@ -55,10 +61,14 @@ public class Task {
         Project project = new Project();
         project.setId(request.getProjectId());
         return Task.builder()
-                .cost(request.getCost())
+                .id(request.getTaskId())
+                .price(request.getPrice())
                 .grade(request.getGrade())
                 .name(request.getName())
+                .description(request.getDescription())
                 .project(project)
+                .assignee(Employee.builder().id(request.getEmployeeId()).build())
+                .status(1)
                 .build();
     }
 }

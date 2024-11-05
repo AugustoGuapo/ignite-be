@@ -25,15 +25,19 @@ public class TaskDTO {
     private Long assignee;
     private Float cost;
     private Long project;
+    private String description;
+    private Integer status;
 
     public static TaskDTO transformEntityToDTO(Task task) {
         return TaskDTO.builder()
                 .id(task.getId())
-                .cost(task.getCost())
+                .cost(task.getPrice())
                 .grade(task.getGrade())
                 .name(task.getName())
                 .assignee(task.getAssignee() == null ? null : task.getAssignee().getId())
                 .project(task.getProject() == null ? null : task.getProject().getId())
+                .description(task.getDescription())
+                .status(task.getStatus())
                 .build();
     }
 }

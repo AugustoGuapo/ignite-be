@@ -13,8 +13,11 @@ import lombok.Setter;
 @NoArgsConstructor
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
 public class AddTaskRequest {
+    Long taskId;
     Long projectId;
     String name;
     String grade;
-    Float cost;
+    String description;
+    Long employeeId;
+    Float price;
 }
